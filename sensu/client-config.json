@@ -1,6 +1,6 @@
 {
   "rabbitmq": {
-    "host": "DNS-or-IP-of-Sensu-Server",
+    "host": "10.12.13.20",
     "port": 5672,
     "user": "sensu",
     "password": "mypass",

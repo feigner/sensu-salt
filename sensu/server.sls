@@ -57,11 +57,19 @@ sensu-api:
     - watch:
       - file: sensu-server-config
 
-# Manage sensu-dashboard (Web service)
-sensu-dashboard:
+# Manage uchiwa web service
+uchiwa-package:
+  pkg.installed:
+    - name: uchiwa
+
+uchiwa-config:
+  file.managed:
+    - name: /etc/sensu/uchiwa.json
+    - source: salt://sensu/uchiwa-config.json
+
+uchiwa:
   service.running:
     - require:
       - service: sensu-server
     - watch:
-      - file: sensu-server-config
-
+      - file: uchiwa-config
